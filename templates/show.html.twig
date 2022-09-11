@@ -1,0 +1,52 @@
+{% extends 'base.html.twig'  %}
+
+{% block body %}
+	<div class="container col-12 mx-auto">
+		<h2>Liste des étudiants
+		</h2>
+		<a class="btn btn-success new-etudiant" href="{{path ('student_new')}}">Nouveau</a>
+		<div class=" list-etudiant">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>First name</th>
+						<th>Last Name</th>
+						<th>Student Number</th>
+						<th>Departement</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for student in students %}
+						<tr>
+							<td>
+								{{ student.id }}
+							</td>
+							<td>
+								{{ student.FirstName }}
+							</td>
+							<td>
+								{{ student.LastName }}
+							</td>
+							<td>
+								{{ student.NumEtud}}
+							</td>
+							<td>
+								{{ student.departement.name }}
+							</td>
+							<td>
+								<a class="btn btn-info" href="{{path ('student_edit', {'id':student.id})}}">editer</a>
+								<a class="btn btn-danger" href="{{ path ('student_delete', {'id':student.id})}}">Supprimer</a>
+
+							</td>
+						</tr>
+					</tbody>
+				</tbody>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table></div></div><script>$(document).ready(function () {
+$('.table').DataTable();
+$("#etudiant_date_naissance").datepicker({format: 'dd/mm/yy'});
+});</script>{% endblock %}

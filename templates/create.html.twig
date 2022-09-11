@@ -1,0 +1,17 @@
+{% extends 'base.html.twig'  %}
+
+{% block body %}
+	{% form_theme formEtudiant 'bootstrap_5_layout.html.twig' %}
+	<div class="container">
+		<h3>Ajouter etudiant</h3>
+		{{ form_start(formEtudiant)}}
+		{{ form_row(formEtudiant.FirstName,{'attr':{'placeholder':"entrer votre nom"}})}}
+		{{ form_row(formEtudiant.LastName,{'attr':{'placeholder':"entrer votre prenom"}})}}
+		{{ form_row(formEtudiant.NumEtud,{'attr':{'placeholder':"entrer votre numero"}})}}
+		{{form_row(formEtudiant.Departement,{'attr':{'placeholder':"votre departement"}})}}
+		<button type="submit" class="btn btn-success">Submit</button>
+		<a class="btn btn-primary new-etudiant" href="{{path ('liste')}}">Retour</a>
+		{{ form_end(formEtudiant) }}
+	</div>
+
+{% endblock %}
