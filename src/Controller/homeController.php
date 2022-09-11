@@ -21,7 +21,7 @@ class homeController extends AbstractController
     {
 
         $students = $studentManager->getStudent();
-        return $this->render('show.html.twig', [
+        return $this->render('Student/show.html.twig', [
             'students' => $students
         ]);
     }
@@ -39,7 +39,7 @@ class homeController extends AbstractController
             return $this->redirectToRoute('liste');
         }
 
-        return $this->render('create.html.twig', [
+        return $this->render('Student/create.html.twig', [
             'formEtudiant' => $form->createView()
 
         ]);
@@ -57,7 +57,7 @@ class homeController extends AbstractController
             $studentManager->crudStudent($student);
             return $this->redirectToRoute('liste');
         }
-        return $this->render("edit.html.twig", [
+        return $this->render("Student/edit.html.twig", [
             "formEtudiant" => $form->createView()
         ]);
     }
