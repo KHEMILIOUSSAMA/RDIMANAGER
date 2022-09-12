@@ -46,8 +46,8 @@ class Student
 
     #[ORM\OneToMany(targetEntity: Departement::class, mappedBy: 'etudiants', cascade: ['persist'])]
     /**
-     * @ORM\ManyToOne(targetEntity=Departement::class, inversedBy="etudiants")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity=Departement::class,inversedBy="etudiants")
+     * @ORM\JoinColumn(nullable=true)  
      */
     private $departement;
 

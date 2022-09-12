@@ -22,7 +22,7 @@ class StudentType extends AbstractType
             ->add('Departement', EntityType::class, [
                 'class' => Departement::class,
                 'choice_label' => 'name',
-                'required' => false,
+                'required' => true,
                 'multiple' => false,
                 'expanded' => true
             ]);
